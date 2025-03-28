@@ -1,107 +1,126 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+}
+
+header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.blog-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* Zentriert die Boxen */
+  gap: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.blog-post {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  overflow: hidden;
+
+  /* FIX: Einheitliche Breite */
+  width: 100%;
+  max-width: 650px;   
+  box-sizing: border-box;
+}
+
+
+.blog-post:hover {
+  transform: translateY(-3px);
+}
+
+.toggle {
+  color: #34495e;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+
+  /* NEU: Titel darf umbrechen */
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  word-break: break-word;
+}
+
+.toggle::after {
+  content: "▼";
+  position: absolute;
+  right: 0;
+  color: #aaa;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.blog-post.open .toggle::after {
+  transform: rotate(180deg);
+}
+
+.content {
+  display: none;
+  margin-top: 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+.blog-post.open .content {
+  display: block;
+}
+
+.blog-post .date {
+  font-size: 0.9rem;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+footer {
+  margin-top: 60px;
+  text-align: center;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* weicheres Einblenden */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
   }
-  
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-    padding: 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  header {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  header h1 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-  }
-  
-  header p {
-    color: #666;
-    font-size: 1.1rem;
-  }
-  
-  .blog-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
-  .blog-post {
-    background-color: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease;
-    overflow: hidden;
-  }
-  
-  .blog-post:hover {
-    transform: translateY(-3px);
-  }
-  
-  .toggle {
-    color: #34495e;
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-    cursor: pointer;
-    user-select: none;
-    position: relative;
-  }
-  
-  .toggle::after {
-    content: "▼";
-    position: absolute;
-    right: 0;
-    color: #aaa;
-    font-size: 0.9rem;
-    transition: transform 0.2s ease;
-  }
-  
-  .blog-post.open .toggle::after {
-    transform: rotate(180deg);
-  }
-  
-  .content {
-    display: none;
-    margin-top: 10px;
-    animation: fadeIn 0.3s ease;
-  }
-  
-  .blog-post.open .content {
-    display: block;
-  }
-  
-  .blog-post .date {
-    font-size: 0.9rem;
-    color: #999;
-    margin-bottom: 10px;
-  }
-  
-  footer {
-    margin-top: 60px;
-    text-align: center;
-    color: #aaa;
-    font-size: 0.9rem;
-  }
-  
-  /* weicheres Einblenden */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-5px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+}
+
+.blog-post img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 10px;
+}
