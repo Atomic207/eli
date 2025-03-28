@@ -119,9 +119,11 @@ footer {
 }
 
 .blog-post img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
   display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
   margin-top: 10px;
+  border-radius: 8px;
 }
