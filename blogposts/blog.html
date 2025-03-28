@@ -256,6 +256,68 @@
         post.classList.toggle('open');
       });
     });
-  </script>
+
+
+    const trailColor = '#af01ff';
+  const trailLifetime = 1000;
+
+  // Mausbewegung: Trail
+  document.addEventListener('mousemove', (e) => {
+    createTrailDot(e.pageX, e.pageY);
+  });
+
+  // Klick: Explosion!
+  document.addEventListener('click', (e) => {
+    for (let i = 0; i < 12; i++) {
+      createExplosionParticle(e.pageX, e.pageY, i);
+    }
+  });
+
+  function createTrailDot(x, y) {
+    const dot = document.createElement('div');
+    dot.className = 'trail-dot';
+    const size = Math.random() * 6 + 4;
+    dot.style.width = size + 'px';
+    dot.style.height = size + 'px';
+    const offsetX = (Math.random() - 0.5) * 20;
+    const offsetY = (Math.random() - 0.5) * 20;
+    dot.style.left = x + offsetX + 'px';
+    dot.style.top = y + offsetY + 'px';
+    dot.style.backgroundColor = trailColor;
+    document.body.appendChild(dot);
+    setTimeout(() => dot.remove(), trailLifetime);
+  }
+
+  function createExplosionParticle(x, y, index) {
+    const dot = document.createElement('div');
+    dot.className = 'explosion-dot';
+
+    // Zufällige Farbe (oder bleib bei trailColor)
+    const colors = ['#af01ff', '#27ae60', '#ff00ff', '#00ffff', '#ffffff'];
+    dot.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+    const size = Math.random() * 4 + 4;
+    dot.style.width = size + 'px';
+    dot.style.height = size + 'px';
+
+    // Ausgangsposition
+    dot.style.left = x + 'px';
+    dot.style.top = y + 'px';
+
+    // Richtung berechnen (in Kreisform)
+    const angle = (Math.PI * 2 / 12) * index;
+    const distance = 40 + Math.random() * 20;
+    const moveX = Math.cos(angle) * distance;
+    const moveY = Math.sin(angle) * distance;
+
+    dot.style.setProperty('--move-x', `${moveX}px`);
+    dot.style.setProperty('--move-y', `${moveY}px`);
+
+    document.body.appendChild(dot);
+    setTimeout(() => dot.remove(), trailLifetime);
+  }
+</script>
+
+  
 </body>
 </html>
