@@ -6,8 +6,8 @@
   
   body {
     font-family: 'Segoe UI', sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: rgb(48, 48, 48);
+    color: #ffffff;
     padding: 0;
   }
   
@@ -16,7 +16,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    background-color: #ffffff;
+    background-color: rgb(48, 48, 48);
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
@@ -25,12 +25,12 @@
   .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: #ffffff;
   }
   
   .login a {
     text-decoration: none;
-    color: #3498db;
+    color: #af01ff;
     font-weight: 500;
   }
   
@@ -57,7 +57,7 @@
   }
   
   .index-button {
-    background-color: #2ecc71;
+    background-color: #9a00c9;
     color: white;
     padding: 15px 30px;
     border-radius: 8px;
